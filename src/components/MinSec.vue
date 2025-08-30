@@ -5,19 +5,19 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div class="rounded-t-lg flex justify-center shadow-sm" :class="props.mode === 'study' ? 'bg-red-600' : 'bg-green-600'">
-        <div class="grid auto-cols-max grid-flow-col pt-3 text-center">
-            <div class="rounded-box text-white flex flex-col py-8 px-6 text-2xl">
-            <span class="countdown font-mono text-9xl font-black">
-                <span style="--value:24;" aria-live="polite" aria-label="24">24</span>
-            </span>
-            min
+    <div class="rounded-t-lg flex justify-center bg-gray-300">
+        <div class="grid auto-cols-max grid-flow-col py-2 gap-2 text-center">
+            <div class="shadow rounded-box text-white text-shadow-xs flex flex-col pt-8 pb-4 px-7 text-2xl" :class="props.mode === 'study' ? 'bg-red-400' : 'bg-green-500'">
+                <span class="countdown font-mono text-9xl font-black">
+                    <span style="--value:24;" aria-live="polite" aria-label="24">24</span>
+                </span>
+                min
             </div>
-            <div class="rounded-box text-white flex flex-col py-8 px-6 text-2xl">
-            <span class="countdown font-mono text-9xl font-black">
-                <span style="--value:59;" aria-live="polite" aria-label="59">59</span>
-            </span>
-            sec
+            <div class="shadow rounded-box text-white text-shadow-xs flex flex-col pt-8 pb-4 px-7 text-2xl" :class="props.mode === 'study' ? 'bg-red-400' : 'bg-green-500'">
+                <span class="countdown font-mono text-9xl font-black">
+                    <span style="--value:59;" aria-live="polite" aria-label="59">59</span>
+                </span>
+                sec
             </div>
         </div>
     </div>
