@@ -6,6 +6,7 @@ export interface Round {
 }
 
 export interface RoundRecord {
+    index: number,
     round: Round,
     date: number
 }

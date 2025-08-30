@@ -9,7 +9,7 @@ const props = defineProps<{
 
 <template>
     <li>
-        <hr class="bg-primary py-4" v-if="props.hasNext" />
+        <hr v-if="props.hasNext" class="bg-primary py-4" />
         <div class="timeline-middle">
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ const props = defineProps<{
         </svg>
         </div>
         <div class="timeline-end timeline-box text-3xl text-gray-700 bg-green-50">{{ props.length }} min 😌</div>
-        <hr class="bg-primary" v-if="props.hasPrev" />
+        <hr v-if="props.hasPrev" class="bg-primary" />
     </li>
 </template>
 

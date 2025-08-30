@@ -1,16 +1,17 @@
 <script lang="ts" setup>
-import RestBubble from './RestBubble.vue';
-import StudyBubble from './StudyBubble.vue';
+import TimeLineBubble from './TimeLineBubble.vue';
+import { usePomodoroStore } from '@/stores/pomodoro';
+
+const pomodoro = usePomodoroStore();
+const { historian } = pomodoro;
+const records = historian.getRecords();
+
 </script>
 
 <template>
     <div class="timeline-overlay"></div>
     <ul class="timeline timeline-vertical mt-3">
-        <RestBubble :has-next="false" :has-prev="true" :length="15" />
-        <RestBubble :has-next="false" :has-prev="true" :length="15" />
-        <StudyBubble :has-next="true" :has-prev="true" />
-        <RestBubble :has-next="true" :has-prev="true" :length="5" />
-        <StudyBubble :has-next="true" :has-prev="false" />
+        <TimeLineBubble v-for="record in records.slice(0, 4)" :key="record.date" :record="record" :records-length="records.length" />
     </ul>
 </template>
 
@@ -19,12 +20,16 @@ import StudyBubble from './StudyBubble.vue';
   position: absolute;
   z-index: 9;
   width: 390px;
-  height: 340px;
+  height: 300px;
   background: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
     rgba(255, 255, 255, 0) 100%
   );
   pointer-events: none;
+}
+
+.timeline {
+  height: 300px;
 }
 </style>
