@@ -8,9 +8,9 @@ import MinSec from './components/MinSec.vue';
 <template>
   <div class="bg-gray-200 p-3 h-screen">
     <div class="container container-sm mx-auto">
-      <NavBar />
+      <NavBar mode="rest" />
       <div class="card bg-base-100 w-full shadow-sm">
-          <MinSec />
+          <MinSec mode="rest" />
         <div class="card-body">
           <TimeLine />
         </div>

@@ -1,10 +1,16 @@
 <script lang="ts" setup>
+const props = defineProps<{
+    hasNext: boolean,
+    hasPrev: boolean,
+    length: 5|15,
+    opacity: number
+}>();
 
 </script>
 
 <template>
-    <li>
-        <hr class="bg-primary" />
+    <li :style="'opacity: ' + props.opacity">
+        <hr class="bg-primary py-4" v-if="props.hasNext" />
         <div class="timeline-middle">
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,8 +25,8 @@
             />
         </svg>
         </div>
-        <div class="timeline-end timeline-box text-3xl text-gray-700 bg-green-50">5 min 😌</div>
-        <hr class="bg-primary" />
+        <div class="timeline-end timeline-box text-3xl text-gray-700 bg-green-50">{{ props.length }} min 😌</div>
+        <hr class="bg-primary" v-if="props.hasPrev" />
     </li>
 </template>
 

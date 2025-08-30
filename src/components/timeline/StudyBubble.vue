@@ -1,10 +1,15 @@
 <script lang="ts" setup>
+const props = defineProps<{
+    hasNext: boolean,
+    hasPrev: boolean,
+    opacity: number
+}>();
 
 </script>
 
 <template>
-    <li>
-        <hr class="bg-primary" />
+    <li :style="'opacity: ' + props.opacity">
+        <hr v-if="props.hasNext" class="bg-primary py-4" />
         <div class="timeline-start timeline-box text-3xl bg-red-50 text-gray-700">25 min 📖</div>
         <div class="timeline-middle">
         <svg
@@ -20,7 +25,7 @@
             />
         </svg>
         </div>
-        <hr class="bg-primary" />
+        <hr v-if="props.hasPrev" class="bg-primary" />
     </li>
 </template>
 
