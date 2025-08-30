@@ -1,22 +1,23 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-let studyTimer: number | null = null;
+let timer: number | null = null;
 
-export const useTimerStore = defineStore('timer', () => {
+export const usePomodoroStore = defineStore('pomodoro', () => {
   const minutes = ref<number>(25);
   const seconds = ref<number>(0);
   const isTicking = ref(false);
+  const mode = ref<'rest' | 'study'>('study');
 
-  const startStudy = () => {
-    if (!studyTimer) {
-      studyTimer = setInterval(() => {
+  const start = () => {
+    if (!timer) {
+      timer = setInterval(() => {
         if (!isTicking.value) return; // paused
 
         if (seconds.value === 0) {
           if (minutes.value === 0) {
-            clearInterval(studyTimer!);
-            studyTimer = null;
+            clearInterval(timer!);
+            timer = null;
             isTicking.value = false;
             return;
           }
@@ -35,11 +36,16 @@ export const useTimerStore = defineStore('timer', () => {
     isTicking.value = false; // just pause, interval still exists
   }
 
-  const reset = () => {
-    minutes.value = 25;
-    seconds.value = 0;
+  const skip = () => {
     isTicking.value = false;
+
+    if (mode.value === 'study')
+      mode.value = 'rest';
+    else 
+      mode.value = 'study';
+
+    timer = null;
   }
 
-  return { minutes, seconds, isTicking, startStudy, stop, reset }
+  return { mode, minutes, seconds, isTicking, start, stop, skip }
 })
