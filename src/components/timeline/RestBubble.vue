@@ -9,13 +9,13 @@ const props = defineProps<{
 
 <template>
     <li>
-        <hr v-if="props.hasNext" class="bg-primary py-4" />
+        <hr v-if="props.hasNext" class="bg-gray-500 py-4" />
         <div class="timeline-middle">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            class="text-primary h-5 w-5"
+            class="text-gray-500 h-5 w-5"
         >
             <path
             fill-rule="evenodd"
@@ -25,7 +25,7 @@ const props = defineProps<{
         </svg>
         </div>
         <div class="timeline-end timeline-box text-3xl text-gray-700 bg-green-50">{{ props.length }} min 😌</div>
-        <hr v-if="props.hasPrev" class="bg-primary" />
+        <hr v-if="props.hasPrev" class="bg-gray-500" />
     </li>
 </template>
 

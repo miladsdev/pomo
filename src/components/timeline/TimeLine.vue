@@ -53,7 +53,7 @@ const goForwardInTime = () => {
   position: absolute;
   z-index: 9;
   width: 390px;
-  height: 370px;
+  height: 390px;
   background: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
@@ -63,6 +63,6 @@ const goForwardInTime = () => {
 }
 
 .timeline {
-  height: 320px;
+  height: 340px;
 }
 </style>
