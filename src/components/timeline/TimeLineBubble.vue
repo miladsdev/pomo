@@ -18,7 +18,7 @@ const hasPrev = computed(() => props.record.index !== 0);
 
   <div
     :class="[
-      'timeline-box text-3xl text-gray-700',
+      'timeline-box text-2xl text-gray-700',
       props.record.round.mode === 'study' ? 'timeline-start bg-red-50' : 'timeline-end bg-green-50'
     ]"
   >
