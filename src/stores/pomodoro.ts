@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { Mode, Round } from '@/models/types';
 import { PomodoroRoundGenerator } from '@/models/PomodoroRoundGenerator';
+import { Historian } from '@/models/Historian';
 
 let timer: number | null = null;
 
@@ -11,9 +12,12 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
   const isTicking = ref(false);
   const generator = new PomodoroRoundGenerator();
   const round = ref<Round>(generator.next());
+  const historian = new Historian();
 
   const play = () => {
     if (!timer) {
+      historian.addRound(round.value);
+
       timer = setInterval(() => {
         if (!isTicking.value) return; // paused
 
@@ -45,9 +49,12 @@ export const usePomodoroStore = defineStore('pomodoro', () => {
     round.value = generator.next();
     minutes.value = round.value.minutes;
     seconds.value = 0;
-    
-    timer = null;
+
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
   }
 
-  return { round, minutes, seconds, isTicking, play, pause, skip }
+  return { historian, round, minutes, seconds, isTicking, play, pause, skip }
 })

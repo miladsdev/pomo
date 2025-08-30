@@ -1,13 +1,12 @@
 <script lang="ts" setup>
 import RestBubble from './RestBubble.vue';
 import StudyBubble from './StudyBubble.vue';
-
-
 </script>
 
 <template>
     <div class="timeline-overlay"></div>
     <ul class="timeline timeline-vertical mt-3">
+        <RestBubble :has-next="false" :has-prev="true" :length="15" />
         <RestBubble :has-next="false" :has-prev="true" :length="15" />
         <StudyBubble :has-next="true" :has-prev="true" />
         <RestBubble :has-next="true" :has-prev="true" :length="5" />
