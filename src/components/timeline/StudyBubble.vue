@@ -2,13 +2,12 @@
 const props = defineProps<{
     hasNext: boolean,
     hasPrev: boolean,
-    opacity: number
 }>();
 
 </script>
 
 <template>
-    <li :style="'opacity: ' + props.opacity">
+    <li>
         <hr v-if="props.hasNext" class="bg-primary py-4" />
         <div class="timeline-start timeline-box text-3xl bg-red-50 text-gray-700">25 min 📖</div>
         <div class="timeline-middle">

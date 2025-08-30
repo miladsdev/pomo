@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div class="rounded-t-lg flex justify-center" :class="props.mode === 'study' ? 'bg-red-500' : 'bg-green-500'">
+    <div class="rounded-t-lg flex justify-center shadow-sm" :class="props.mode === 'study' ? 'bg-red-600' : 'bg-green-600'">
         <div class="grid auto-cols-max grid-flow-col pt-3 text-center">
             <div class="rounded-box text-white flex flex-col py-8 px-6 text-2xl">
             <span class="countdown font-mono text-9xl font-black">

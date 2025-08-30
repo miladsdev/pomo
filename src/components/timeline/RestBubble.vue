@@ -3,13 +3,12 @@ const props = defineProps<{
     hasNext: boolean,
     hasPrev: boolean,
     length: 5|15,
-    opacity: number
 }>();
 
 </script>
 
 <template>
-    <li :style="'opacity: ' + props.opacity">
+    <li>
         <hr class="bg-primary py-4" v-if="props.hasNext" />
         <div class="timeline-middle">
         <svg
